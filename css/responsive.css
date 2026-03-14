@@ -1,0 +1,12 @@
+@media(max-width:768px) {
+    .grid-container {
+        grid-template-areas: 
+        "header"
+        "main"
+        "sidebar"
+        "footer";
+        grid-template-columns: 1fr
+    }
+
+    
+}

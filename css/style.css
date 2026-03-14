@@ -12,7 +12,7 @@
     "header header"
     "sidebar main"
     "footer footer";
-    grid-template-columns: 1.1fr 6fr;
+    grid-template-columns: 12rem 1fr;
     grid-template-rows: auto 1fr auto;
     gap: 1.2rem;
     min-height: 100vh;
@@ -293,7 +293,113 @@ footer {
     text-align: center;
 }
 
+.hamburger {
+  position: fixed;
+  top: 4rem; /* navbar altı */
+  left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2rem;
+  height: 1.5rem;
+  cursor: pointer;
+  z-index: 1000; /* sidebar’ın üstünde olmalı */
+}
+
+.hamburger span {
+  display: block;
+  height: 0.3rem;
+  background-color: #582828;
+  border-radius: 2px;
+}
 
 /* RESPONSIVE */
 
+@media(max-width:768px) {
 
+    .grid-container{
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+    grid-template-columns: 1fr; /* tek kolon */
+  }
+
+  .main-categories {
+    position: fixed; /* grid dışına çıkar */
+    top: 10rem;
+    left: -250px; /* kapalı pozisyon */
+    width: 200px;
+    height: 500px;
+    background: #cbbd80;
+    color: #fff;
+    z-index: 999;
+    transition: left 0.6s;
+  }
+
+  .movie-cards h1 {
+    text-align: center; }
+
+  #menu-toggle:checked ~ .main-categories {
+    left: 0; /* açılmış pozisyon */
+  }
+
+  .main-nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: #582828;
+    position: fixed;
+    top: 2rem;   /* navbar altı */
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 999;
+    transition: left 0.6s;
+    
+  }
+
+  /* Checkbox açınca göster */
+  #nav-toggle:checked ~ .main-nav ul {
+    display: flex;
+  }
+
+  /* Hamburger görünür */
+  .nav-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 2rem;
+    height: 1.5rem;
+    position: fixed;
+    top: .5rem;
+    right: 1rem;
+    cursor: pointer;
+    z-index: 1000;
+    
+    
+  }
+
+  .nav-hamburger span {
+    display: block;
+    height: 0.3rem;
+    background-color: #fff;
+    border-radius: 2px;
+  }
+
+  /* Nav li düzenleme */
+  .main-nav__item {
+    margin:0;
+    text-align: center;
+  }
+  
+
+}
+
+@media(min-width:769px) {
+    .hamburger {
+        display: none;
+    }
+    .nav-hamburger {
+  display: none;
+}
+}
