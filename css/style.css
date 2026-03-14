@@ -329,7 +329,7 @@ footer {
     position: fixed; /* grid dışına çıkar */
     top: 10rem;
     left: -250px; /* kapalı pozisyon */
-    width: 200px;
+    width: 220px;
     height: 500px;
     background: #cbbd80;
     color: #fff;
